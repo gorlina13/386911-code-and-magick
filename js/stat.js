@@ -35,12 +35,9 @@ window.renderStatistics = function (ctx, names, times) {
   var initialX = 120; // px;
   var initialY = 100;  // px;
   var resultLineHeight = 20;  // px;
-  var redColor = 0;
-  var greenColor = 0;
-  var blueColor = 255;
 
-  function getRandomColor(redColor, greenColor, blueColor) {
-    ctx.fillStyle = 'rgba(' + redColor + ', ' + greenColor + ', ' + blueColor + ', ' + Math.round(Math.random() * 10) / 10 + ')';
+  function getRandomColor() {
+    ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.round(Math.random() * 10) / 10 + ')';
   }
 
   ctx.textBaseline = 'hanging';
@@ -53,7 +50,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      getRandomColor(redColor, greenColor, blueColor);
+      getRandomColor();
     }
     ctx.fillRect(initialX + i * (indent + barWidth), initialY + histogramHeight - Math.round(times[i]) * step, barWidth, Math.round(times[i]) * step);
   }
