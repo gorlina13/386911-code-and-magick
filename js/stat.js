@@ -35,6 +35,13 @@ window.renderStatistics = function (ctx, names, times) {
   var initialX = 120; // px;
   var initialY = 100;  // px;
   var resultLineHeight = 20;  // px;
+  var redColor = 0;
+  var greenColor = 0;
+  var blueColor = 255;
+
+  function getRandomColor(redColor, greenColor, blueColor) {
+    ctx.fillStyle = 'rgba(' + redColor + ', ' + greenColor + ', ' + blueColor + ', ' + Math.round(Math.random() * 10) / 10 + ')';
+  }
 
   ctx.textBaseline = 'hanging';
   for(var i = 0; i < times.length; i++) {
@@ -46,7 +53,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'rgba(0, 0, 255, 1)';
+      getRandomColor(redColor, greenColor, blueColor);
     }
     ctx.fillRect(initialX + i * (indent + barWidth), initialY + histogramHeight - Math.round(times[i]) * step, barWidth, Math.round(times[i]) * step);
   }
