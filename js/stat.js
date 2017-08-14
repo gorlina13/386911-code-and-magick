@@ -18,7 +18,7 @@ window.renderStatistics = function (ctx, names, times) {
   var max = -1;
   var maxIndex = -1;
 
-  for(var i = 0 ; i < times.length; i++) {
+  for (var i = 0 ; i < times.length; i++) {
     var time = Math.round(times[i]);
     if (time > max) {
       max = time;
@@ -32,7 +32,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   var barWidth = 40; // px;
   var indent = 50;    // px;
-  var initialX = 120; // px;
+  var initialX = 155; // px;
   var initialY = 100;  // px;
   var resultLineHeight = 20;  // px;
 
@@ -41,12 +41,12 @@ window.renderStatistics = function (ctx, names, times) {
   }
 
   ctx.textBaseline = 'hanging';
-  for(var i = 0; i < times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     ctx.fillText(Math.round(times[i]), initialX + i * (indent + barWidth), initialY + histogramHeight - Math.round(times[i]) * step - resultLineHeight);
     ctx.fillText(names[i], initialX + i * (indent + barWidth), initialY + histogramHeight);
   }
 
-  for(var i = 0; i < times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
