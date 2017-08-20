@@ -24,7 +24,7 @@ function createWizards(j) {
 
   for (var i = 0; i < j; i++) {
     wizards[i] = {
-      name: getRandomData(FIRST_NAMES) + ' ' + getRandomData(SURNAMES),
+      name: Math.random() > 0.5 ? getRandomData(FIRST_NAMES) + ' ' + getRandomData(SURNAMES) : getRandomData(SURNAMES) + ' ' + getRandomData(FIRST_NAMES),
       coatColor: getRandomData(COAT_COLORS),
       eyesColor: getRandomData(EYE_COLORS)
     };
