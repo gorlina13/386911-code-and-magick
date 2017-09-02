@@ -19,6 +19,14 @@
       var rand = Math.random() * (array.length);
       rand = Math.floor(rand);
       return array[rand];
+    },
+    getCoords: function (element) {
+      var elementBox = element.getBoundingClientRect();
+
+      return {
+        top: elementBox.top + pageYOffset,
+        left: elementBox.left + pageXOffset
+      };
     }
   };
 })();
